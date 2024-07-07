@@ -3,7 +3,7 @@
 ## Overview
 It’s been two weeks since you were hired as a new data engineer at Pewlett Hackard (a fictional company). Your first major task is to do a research project about people whom the company employed during the 1980s and 1990s. All that remains of the employee database from that period are six CSV files.
 
-## Data Modeling
+## Data Modeling/Engineering
 The Entity Relationship Diagram (ERD) outlines the relationships between different entities in the employee database. The primary entities include employees, departments, titles, salaries, department-employee relationships, and department-manager relationships.
 
 ### ERD Structure
@@ -42,61 +42,6 @@ The Entity Relationship Diagram (ERD) outlines the relationships between differe
 - Employees can work in multiple departments over time (recorded in dept_emp).
 - Departments can have multiple managers over time (recorded in dept_manager).
 - Departments and titles are independent entities with their own primary keys.
-
-## Data Engineering
-The table schemata define the structure of the tables in the database, including primary keys, foreign keys, and constraints.
-
-### SQL Code to Create Tables
-```sql
--- Creating the titles table
-CREATE TABLE titles (
-    title_id CHAR(5) PRIMARY KEY,
-    title VARCHAR(40)
-);
-
--- Creating the departments table
-CREATE TABLE departments (
-    dept_no CHAR(4) PRIMARY KEY,
-    dept_name VARCHAR(40)
-);
-
--- Creating the employees table
-CREATE TABLE employees (
-    emp_no INT PRIMARY KEY,
-    emp_title_id CHAR(5),
-    birth_date DATE,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    sex CHAR(1),
-    hire_date DATE,
-    FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
-);
-
--- Creating the salaries table
-CREATE TABLE salaries (
-    emp_no INT,
-    salary INT,
-    PRIMARY KEY (emp_no, salary),
-    FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
-);
-
--- Creating the dept_emp table
-CREATE TABLE dept_emp (
-    emp_no INT,
-    dept_no CHAR(4),
-    PRIMARY KEY (emp_no, dept_no),
-    FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
-    FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
-);
-
--- Creating the dept_manager table
-CREATE TABLE dept_manager (
-    dept_no CHAR(4),
-    emp_no INT,
-    PRIMARY KEY (dept_no, emp_no),
-    FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
-    FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
-);
 
 ## Data Analysis
 The following SQL queries were used to perform data analysis:
