@@ -124,3 +124,7 @@ Lists each employee in the Sales and Development departments, including their em
 
 ### 8. List the frequency counts, in descending order, of all the employee last names:
 Lists the frequency counts, in descending order, of all employee last names to see how many employees share each last name.
+
+## Code Source
+- Learning Assistant
+- GitHub location: https://github.com/jeffjunohkim/sql-challenge.git
