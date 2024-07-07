@@ -37,6 +37,14 @@ The Entity Relationship Diagram (ERD) outlines the relationships between differe
   - dept_no (Primary Key, Foreign Key to departments)
   - emp_no (Primary Key, Foreign Key to employees)
 
+### Schemata Summary
+- Titles: title_id is a unique primary key.
+- Departments: dept_no is a unique primary key.
+- Employees: emp_no is a unique primary key.
+- Salaries: Composite key on emp_no and salary_date ensures that each salary entry is unique for each employee at a given time.
+- Dept_emp: Composite key on emp_no and dept_no ensures that each employee-department relationship is unique.
+- Dept_manager: Composite key on dept_no and emp_no ensures that each department-manager relationship is unique.
+
 ### Relationships
 - Each employee is associated with a title and can have multiple salary records.
 - Employees can work in multiple departments over time (recorded in dept_emp).
