@@ -26,7 +26,8 @@ CREATE TABLE employees (
 CREATE TABLE salaries (
     emp_no INT NOT NULL,
     salary INT NOT NULL,
-    PRIMARY KEY (emp_no, salary),
+    salary_date DATE NOT NULL,
+    PRIMARY KEY (emp_no, salary_date),
     FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
